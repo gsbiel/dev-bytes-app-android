@@ -65,14 +65,13 @@ fun NetworkVideoContainer.asDomainModel(): List<Video> {
     }
 }
 
-fun NetworkVideoContainer.asDatabaseModel(): List<DatabaseVideo> {
-    return videos.map{
+fun NetworkVideoContainer.asDatabaseModel(): Array<DatabaseVideo> {
+    return videos.map {
         DatabaseVideo(
                 title = it.title,
                 description = it.description,
                 url = it.url,
                 updated = it.updated,
-                thumbnail = it.thumbnail
-        )
-    }
+                thumbnail = it.thumbnail)
+    }.toTypedArray()
 }
